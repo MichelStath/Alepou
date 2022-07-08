@@ -17,9 +17,34 @@ namespace App2
             InitializeComponent();
         }
 
+        private bool CheckUsernameIfNotExist(string username)
+        {
+            if (username == "1")
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        private void RegisterUser(string username , string password)
+        {
+            // INSERT QUERY
+        }
+
         private async void Register_Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RegisterPage(), true);
+            //await Navigation.PushAsync(new RegisterPage(), true);
+            if (CheckUsernameIfNotExist(txtUsername.Text))
+            {
+                RegisterUser(txtUsername.Text, txtPassword.Text);
+                await Navigation.PushAsync(new LoginUI(), true);
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Pick another Username", "OK!");
+            }
         }
 
         private async void GoToLoginPage_Tapped(object sender, EventArgs e)

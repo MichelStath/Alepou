@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
 
 namespace App2
 {
@@ -9,7 +11,6 @@ namespace App2
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new LoginUI());
         }
 
@@ -24,5 +25,6 @@ namespace App2
         protected override void OnResume()
         {
         }
+
     }
 }
