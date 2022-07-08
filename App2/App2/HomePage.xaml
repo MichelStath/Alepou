@@ -30,17 +30,6 @@
                     ></Button>
 
                 <Button
-                    VerticalOptions="Center"
-                    Text="Calendar" 
-                    FontAttributes="Bold"
-                    BackgroundColor="Transparent"
-                    BorderWidth="2.5"
-                    BorderColor="Green"
-                    CornerRadius="50"    
-                    Clicked="Calendar_Button_Clicked"
-                    ></Button>
-
-                <Button
                 VerticalOptions="Center"
                 Text="Today"
                 FontAttributes="Bold"
