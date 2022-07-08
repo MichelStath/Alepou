@@ -17,7 +17,17 @@
                 CornerRadius="50"
                 Clicked="Login_Button_Clicked"
                 ></Button>
-            
+
+            <Button
+                VerticalOptions="Center"
+                Text="Login"
+                BackgroundColor="Transparent"
+                BorderWidth="1.5"
+                BorderColor="Green"
+                CornerRadius="50"
+                Clicked="Login_Button_Clicked"
+                ></Button>
+
             <Label HorizontalOptions="Center">
                 <Label.FormattedText>
                 <FormattedString>
