@@ -19,7 +19,9 @@ namespace App2
         
         public LoginUI()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            txtUsername.Text = "";
+            txtPassword.Text = "";
         }
        
         async void Login_Button_Clicked(object sender, EventArgs e)

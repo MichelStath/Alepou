@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App2.HomePage">
+             x:Class="App2.HomePage" NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="30,80,30,0">
@@ -51,6 +51,19 @@
                 CornerRadius="50"
                 Clicked="Add_Button_Clicked"
                 ></Button>
+
+                <StackLayout Padding="30,100,30,0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="50">
+                    <Button
+                    VerticalOptions="Center"
+                    Text="log out"
+                    FontAttributes="Bold"
+                    BackgroundColor="Transparent"
+                    BorderWidth="2.5"
+                    BorderColor="Green"
+                    CornerRadius="50"              
+                    Clicked="Logout_Button_Clicked"
+                    ></Button>
+                </StackLayout>
 
 
             </StackLayout>

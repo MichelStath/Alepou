@@ -15,7 +15,7 @@ namespace App2
         public HomePage(string currentUser)
         {
             InitializeComponent(); 
-            txtWelocomeUser.Text = "Welcome " + currentUser;
+            txtWelocomeUser.Text = "Welcome " + currentUser;                       
         }
 
         
@@ -38,6 +38,11 @@ namespace App2
         private async void Add_Button_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddEventPage(), true);
+        }
+
+        private async void Logout_Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginUI(), true);
         }
     }
 }
