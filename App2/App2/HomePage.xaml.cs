@@ -12,9 +12,10 @@ namespace App2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        public HomePage()
+        public HomePage(string currentUser)
         {
-            InitializeComponent();           
+            InitializeComponent(); 
+            txtWelocomeUser.Text = "Welcome " + currentUser;
         }
 
         

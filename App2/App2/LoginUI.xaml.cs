@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using SQLite;
+using System.IO;
+using App2.Tables;
 
 namespace App2
 {
@@ -19,30 +21,21 @@ namespace App2
         {
             InitializeComponent();            
         }
+       
+        async void Login_Button_Clicked(object sender, EventArgs e)
+        {           
+            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+            var db = new SQLiteConnection(dbpath);
 
-        private bool CheckCredentials(string username ,string password)
-        {
-            if (username == "1" || password== "1")
+            var myquerry = db.Table<RegUserTable>().Where(u => u.UserName.Equals(txtUsername.Text) && u.Password.Equals(txtPassword.Text)).FirstOrDefault();
+            if (myquerry != null)
             {
-                return true;
-            }
-
-            return false;
-            
-        }
-
-
-
-        private async void Login_Button_Clicked(object sender, EventArgs e)
-        {
-            if (CheckCredentials(txtUsername.Text, txtPassword.Text))
-            {
-                await Navigation.PushAsync(new HomePage(), true);
+                await Navigation.PushAsync(new HomePage(txtUsername.Text), true);
             }
             else
             {
                 await DisplayAlert("Alert", "Wrong Username OR Password", "Try again!");
-            }     
+            }
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)

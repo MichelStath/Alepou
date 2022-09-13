@@ -1,5 +1,8 @@
-﻿using System;
+﻿using App2.Tables;
+using SQLite;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,34 +20,19 @@ namespace App2
             InitializeComponent();
         }
 
-        private bool CheckUsernameIfNotExist(string username)
-        {
-            if (username == "1")
-            {
-                return false;
-            }
-
-            return true;
-
-        }
-
-        private void RegisterUser(string username , string password)
-        {
-            // INSERT QUERY
-        }
-
         private async void Register_Button_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new RegisterPage(), true);
-            if (CheckUsernameIfNotExist(txtUsername.Text))
+            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+            var db = new SQLiteConnection (dbpath);
+            db.CreateTable<RegUserTable>();
+            var item = new RegUserTable()
             {
-                RegisterUser(txtUsername.Text, txtPassword.Text);
-                await Navigation.PushAsync(new LoginUI(), true);
-            }
-            else
-            {
-                await DisplayAlert("Alert", "Pick another Username", "OK!");
-            }
+                UserName = txtUsername.Text,
+                Password = txtPassword.Text
+            };
+
+            db.Insert(item);
+
         }
 
         private async void GoToLoginPage_Tapped(object sender, EventArgs e)
