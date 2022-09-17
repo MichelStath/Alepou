@@ -19,7 +19,8 @@
             <Label Text="Event time:"
                    TextColor="Black"/>
             <TimePicker x:Name="eventTimePicker"                                       
-                    Margin="0, 0, 0, 10"/>
+                    Margin="0, 0, 0, 10"
+                    Format = "HH:mm"/>
 
             <StackLayout Orientation="Vertical"
                      Margin="0, 0, 0, 30">

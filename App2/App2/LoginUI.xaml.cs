@@ -16,12 +16,12 @@ namespace App2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginUI : ContentPage
     {
-        
+
         public LoginUI()
         {
             InitializeComponent();
             txtUsername.Text = "";
-            txtPassword.Text = "";
+            txtPassword.Text = "";            
         }
        
         async void Login_Button_Clicked(object sender, EventArgs e)
@@ -29,10 +29,11 @@ namespace App2
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
             var db = new SQLiteConnection(dbpath);
 
+
             var myquerry = db.Table<RegUserTable>().Where(u => u.UserName.Equals(txtUsername.Text) && u.Password.Equals(txtPassword.Text)).FirstOrDefault();
             if (myquerry != null)
             {
-                await Navigation.PushAsync(new HomePage(txtUsername.Text), true);
+                await Navigation.PushAsync(new HomePage(txtUsername.Text), true);                
             }
             else
             {

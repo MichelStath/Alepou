@@ -6,7 +6,7 @@ namespace App2
 {
     public class user
     {
-        public string UserName { get; set; }
-        public string Id { get; set; }
+        public string CurrentUserName { get; set; }
+        public string CurrentUserId { get; set; }
     }
 }
