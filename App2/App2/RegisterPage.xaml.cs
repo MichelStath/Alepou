@@ -28,23 +28,30 @@ namespace App2
             
 
             var myquerry = db.Table<RegUserTable>().Where(u => u.UserName.Equals(txtUsername.Text)).FirstOrDefault();
-            if (myquerry == null)
+            if (txtUsername.Text != null && txtPassword.Text != null) //space problem
             {
-                var item = new RegUserTable()
+                if (myquerry == null)
                 {
-                    UserName = txtUsername.Text,
-                    Password = txtPassword.Text
-                };
+                    var item = new RegUserTable()
+                    {
+                        UserName = txtUsername.Text,
+                        Password = txtPassword.Text
+                    };
 
-                db.Insert(item);
-                await DisplayAlert("Alert", "Register successful! \n" +
-                                            "Username: " + txtUsername.Text + "\n" +
-                                            "Password: " + txtPassword.Text, "OK");
-                await Navigation.PushAsync(new LoginUI(), true);
+                    db.Insert(item);
+                    await DisplayAlert("Alert", "Register successful! \n" +
+                                                "Username: " + txtUsername.Text + "\n" +
+                                                "Password: " + txtPassword.Text, "OK");
+                    await Navigation.PushAsync(new LoginUI(), true);
+                }
+                else
+                {
+                    await DisplayAlert("Alert", "Username already used. Pick another username or login", "OK");
+                }
             }
             else
             {
-                await DisplayAlert("Alert", "Username already used. Pick another username or login", "OK");
+                await DisplayAlert("Alert", "Username OR Password", "OK");
             }
 
         }

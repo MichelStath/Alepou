@@ -4,6 +4,8 @@
              x:Class="App2.LoginUI" NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Padding="30" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="20">
+            <Label Text="Welcome to Login!"
+                   TextColor="Black"/>
             
             <Entry x:Name="txtUsername" Placeholder="Username" TextColor="Black" PlaceholderColor="Gray"></Entry>
             <Entry x:Name="txtPassword" Placeholder="Password" TextColor="Black" PlaceholderColor="Gray" IsPassword="True"></Entry>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App2.RegisterPage">
+             x:Class="App2.RegisterPage" NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Padding="30" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="20">
             <Label Text="Welcome to Registert!"/>
