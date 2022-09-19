@@ -25,13 +25,27 @@ namespace App2
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
             var db = new SQLiteConnection (dbpath);
             db.CreateTable<RegUserTable>();
-            var item = new RegUserTable()
-            {
-                UserName = txtUsername.Text,
-                Password = txtPassword.Text
-            };
+            
 
-            db.Insert(item);
+            var myquerry = db.Table<RegUserTable>().Where(u => u.UserName.Equals(txtUsername.Text)).FirstOrDefault();
+            if (myquerry == null)
+            {
+                var item = new RegUserTable()
+                {
+                    UserName = txtUsername.Text,
+                    Password = txtPassword.Text
+                };
+
+                db.Insert(item);
+                await DisplayAlert("Alert", "Register successful! \n" +
+                                            "Username: " + txtUsername.Text + "\n" +
+                                            "Password: " + txtPassword.Text, "OK");
+                await Navigation.PushAsync(new LoginUI(), true);
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Username already used. Pick another username or login", "OK");
+            }
 
         }
 
