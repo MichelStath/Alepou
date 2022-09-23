@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>    
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             x:Class="App2.CalendarPage">
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <syncfusion:SfCalendar x:Name="calendar"
+                                    OnCalendarTapped="calendar_OnCalendarTapped"/>           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

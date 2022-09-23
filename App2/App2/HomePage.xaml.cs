@@ -27,12 +27,7 @@ namespace App2
 
         private async void Calendar_Button_Clicked(object sender, EventArgs e)
         {
-
-        }
-
-        private async void Today_Button_Clicked(object sender, EventArgs e)
-        {
-
+            await Navigation.PushAsync(new CalendarPage(), true);
         }
 
         private async void Add_Button_Clicked(object sender, EventArgs e)

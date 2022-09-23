@@ -31,13 +31,13 @@
 
                 <Button
                 VerticalOptions="Center"
-                Text="Today"
+                Text="Calendar"
                 FontAttributes="Bold"
                 BackgroundColor="Transparent"
                 BorderWidth="2.5"
                 BorderColor="Green"
                 CornerRadius="50"           
-                Clicked="Today_Button_Clicked"   
+                Clicked="Calendar_Button_Clicked"   
                 ></Button>
                 
                 
