@@ -16,18 +16,28 @@ namespace App2
         public CalendarPage()
         {
             InitializeComponent();
-            SfCalendar calendar = new SfCalendar();                     
-            calendar.MinDate = new DateTime(2021, 1, 1);
-            calendar.MaxDate = new DateTime(2030, 1, 1);
-            this.Content = calendar;
+            
+        }
+
+        private void showEvents(DateTime selectedDate)
+        {
+
         }
 
         [Obsolete]
         private async void calendar_OnCalendarTapped(object sender, CalendarTappedEventArgs e)
+        {           
+            DateTime selectedDate = e.datetime;
+            //await Navigation.PushAsync(new LoginUI(), true);
+            await DisplayAlert("Alert", selectedDate.ToString(), "OK");
+            showEvents(selectedDate);
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            SfCalendar calendar = (sender as SfCalendar);
-            DateTime date = e.datetime;
-            await Navigation.PushAsync(new LoginUI(), true);
+            DateTime testdate = new DateTime();
+            testdate = calendar.SelectedDate.Value;
+            //await DisplayAlert("Alert", testdate.ToString(), "OK");
         }
     }
 }

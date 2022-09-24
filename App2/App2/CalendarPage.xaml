@@ -6,8 +6,48 @@
     
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
+
             <syncfusion:SfCalendar x:Name="calendar"
-                                    OnCalendarTapped="calendar_OnCalendarTapped"/>           
+                                   InlineViewMode="Agenda"
+                                   ShowInlineEvents="False"
+                                   OnCalendarTapped="calendar_OnCalendarTapped"
+                                   >
+                <syncfusion:SfCalendar.MonthViewSettings>
+                    <syncfusion:MonthViewSettings TodayBorderColor="#ff0000"/>
+                </syncfusion:SfCalendar.MonthViewSettings>
+            </syncfusion:SfCalendar>
+
+            <Button
+                    VerticalOptions="Center"
+                    Text="View Events"
+                    FontAttributes="Bold"
+                    BackgroundColor="Transparent"
+                    BorderWidth="2.5"
+                    BorderColor="Green"
+                    CornerRadius="50"              
+                    Clicked="Button_Clicked"
+                    ></Button>
+
+            <CollectionView x:Name="collectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding EventDateTime}"
+                               FontSize="Medium" />
+                            <Label Text="{Binding EventTitle}"
+                               FontSize="Medium" />
+                            <Label Text="{Binding EventDescription}"
+                               FontSize="Medium" />
+                            <Label Text="{Binding EventParticipants}"
+                               FontSize="Medium" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

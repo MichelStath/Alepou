@@ -15,13 +15,30 @@
             <DatePicker x:Name="eventDatePicker"
                     Format="dd/MM/yyyy"
                     Margin="0, 0, 0, 0" />
-
+            
+            <StackLayout Orientation="Horizontal">
             <Label Text="Event time:"
-                   TextColor="Black"/>
+                   TextColor="Black"
+                   HorizontalOptions="StartAndExpand"/>
+            <Label Text="Event duration:"
+                   TextColor="Black"
+                   HorizontalOptions="EndAndExpand"
+                   />
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
             <TimePicker x:Name="eventTimePicker"                                       
-                    Margin="0, 0, 0, 10"
-                    Format = "HH:mm"/>
-
+                        Margin="0, 0, 0, 10"
+                        Format = "HH:mm"
+                        HorizontalOptions="StartAndExpand"/>
+            <Entry x:Name="eventDuration"
+                   Placeholder="Duration"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="EndAndExpand"
+                   Keyboard="Numeric"></Entry>
+            </StackLayout>
+            
             <StackLayout Orientation="Vertical"
                      Margin="0, 0, 0, 30">
                 <Label Text="Event Title: "

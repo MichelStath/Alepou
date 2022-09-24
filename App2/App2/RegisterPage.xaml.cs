@@ -22,14 +22,13 @@ namespace App2
 
         private async void Register_Button_Clicked(object sender, EventArgs e)
         {
-            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+            var dbpath = Path.Combine((Environment.CurrentDirectory), "UserDatabase.db");
             var db = new SQLiteConnection (dbpath);
             db.CreateTable<RegUserTable>();
-            
 
             var myquerry = db.Table<RegUserTable>().Where(u => u.UserName.Equals(txtUsername.Text)).FirstOrDefault();
             if (txtUsername.Text != null && txtPassword.Text != null) //space problem
-            {
+            {               
                 if (myquerry == null)
                 {
                     var item = new RegUserTable()
