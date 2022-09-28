@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viemodels="clr-namespace:Alepou.ViewModels"
+             x:Class="Alepou.Views.EventAddPage">
+    <ContentPage.BindingContext>
+        <viemodels:EventAddViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Margin="10"
+                 Orientation="Vertical"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center">
+        
+        <Label Text="Event"
+               Style="{DynamicResource TitleStyle}"
+               Margin="0, 20"
+               HorizontalTextAlignment="Center"
+               TextColor="Black"/>
+
+        <Label Text="Date:"
+               TextColor="Black"/>
+        
+        <DatePicker x:Name="DatePicker"
+                    Date="{Binding CalendarEvent.Date}"
+                    Format="dd/MM/yyyy"
+                    Margin="0, 0, 0, 0"/>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Time:"
+                   TextColor="Black"
+                   HorizontalOptions="StartAndExpand"/>
+            <Label Text="Duration:"
+                   TextColor="Black"
+                   HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <TimePicker x:Name="TimePicker"                                       
+                        Margin="0, 0, 0, 10"
+                        Time="{Binding Time}"
+                        Format = "HH:mm"
+                        HorizontalOptions="StartAndExpand"/>
+            
+            <Entry x:Name="Duration"
+                   Placeholder="Duration.."
+                   Text="{Binding CalendarEvent.Duration}"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="EndAndExpand"
+                   Keyboard="Numeric"/>
+        </StackLayout>
+
+        <Label Text="Description:"
+               VerticalOptions="Center"
+               TextColor="Black"/>
+        
+        <Entry x:Name="Description"
+               Placeholder="Description.."
+               Text="{Binding CalendarEvent.Description}"
+               TextColor="Black"
+               PlaceholderColor="Gray"/>
+
+        <Label Text="Event Participants:"
+               VerticalOptions="Center"
+               TextColor="Black"/>
+
+        <ListView x:Name="UserList"
+                  ItemsSource="{Binding CalendarEvent.Participants}"
+                  SelectedItem="{Binding SelectedUser}"
+                  SeparatorVisibility="Default"
+                  VerticalScrollBarVisibility="Default"
+                  Visual="Default"
+                  SelectionMode="Single"
+                  VerticalOptions="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Username}"
+                              TextColor="#000000"
+                              DetailColor="#FFFFFF"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Text="Add Participant:"
+               VerticalOptions="Center"
+               TextColor="Black"/>
+
+        <Entry x:Name="ParticipantToAdd"
+               Placeholder="Username..."
+               Text="{Binding UserToAdd}"
+               TextColor="Black"
+               PlaceholderColor="Gray"
+               HorizontalOptions="FillAndExpand"/>
+
+        <StackLayout Orientation="Horizontal"
+                     VerticalOptions="Fill">
+            <Button x:Name="AddParticipantButton"
+                    WidthRequest="183"
+                    Text="Add Participant"
+                    FontAttributes="Bold"
+                    BackgroundColor="Transparent"
+                    BorderWidth="2.5"
+                    BorderColor="Green"
+                    CornerRadius="50"             
+                    Command="{Binding AddParticipantCommand}"/>
+
+            <Button x:Name="RemoveParticipantButton"
+                    WidthRequest="183"
+                    Text="Remove Participant"
+                    FontAttributes="Bold"
+                    BackgroundColor="Transparent"
+                    BorderWidth="2.5"
+                    BorderColor="Green"
+                    CornerRadius="50"           
+                    Command="{Binding RemoveParticipantCommand}"/>
+        </StackLayout>
+
+        <Button VerticalOptions="Center"
+                Text="Add Event"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                BorderWidth="2.5"
+                BorderColor="Green"
+                CornerRadius="50"              
+                Command="{Binding AddEventCommand}"/>
+        
+    </StackLayout>
+</ContentPage>

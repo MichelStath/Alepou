@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viemodels="clr-namespace:Alepou.ViewModels"
+             x:Class="Alepou.Views.RegisterPage"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viemodels:RegisterViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout Padding="30" 
+                 VerticalOptions="Center"
+                 HorizontalOptions="FillAndExpand"
+                 Spacing="20">
+        
+        <Label Text="Register"/>
+
+        <Entry x:Name="username"
+               Placeholder="Username"
+               Text="{Binding Username}"
+               TextColor="Black"
+               PlaceholderColor="Gray"/>
+        <Entry x:Name="password"
+               Placeholder="Password"
+               Text="{Binding Password}"
+               TextColor="Black"
+               PlaceholderColor="Gray"
+               IsPassword="True"/>
+
+        <Button VerticalOptions="Center"
+                Text="Register"
+                BackgroundColor="Transparent"
+                BorderWidth="1.5"
+                BorderColor="Green"
+                CornerRadius="50"
+                Command="{Binding RegisterCommand}"/>
+
+        <Label HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Already have an account? "
+                          TextColor="Gray"/>
+                    <Span Text="Login"
+                          TextColor="Gray"
+                          FontAttributes="Bold"
+                          TextDecorations="Underline"/>
+                </FormattedString>
+            </Label.FormattedText>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+    </StackLayout>
+</ContentPage>

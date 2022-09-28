@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viemodels="clr-namespace:Alepou.ViewModels"
+             x:Class="Alepou.Views.NotificationPage">
+    <ContentPage.BindingContext>
+        <viemodels:NotificationViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+        <Label Text="Notifications"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"/>
+
+        <CollectionView x:Name="collectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding EventDateTime}"
+                               FontSize="Medium"/>
+                        <Label Text="{Binding EventTitle}"
+                               FontSize="Medium"/>
+                        <Label Text="{Binding EventDescription}"
+                               FontSize="Medium"/>
+                        <Label Text="{Binding EventParticipants}"
+                               FontSize="Medium"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

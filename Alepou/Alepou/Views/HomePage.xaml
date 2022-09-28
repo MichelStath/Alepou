@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viemodels="clr-namespace:Alepou.ViewModels"
+             x:Class="Alepou.Views.HomePage"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viemodels:HomeViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="30, 80"
+                 VerticalOptions="Center"
+                 HorizontalOptions="FillAndExpand"
+                 Spacing="50">
+
+        <Label HorizontalOptions="Center"
+               Text="{Binding WelcomeMessage}"
+               TextColor="Black"
+               FontAttributes="Bold"/>
+
+        <Button VerticalOptions="Center"
+                Text="Notifications"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                BorderWidth="2.5"
+                BorderColor="Green"
+                CornerRadius="50"              
+                Command="{Binding GoToNotificationCommand}"/>
+
+        <Button VerticalOptions="Center"
+                Text="Calendar"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                BorderWidth="2.5"
+                BorderColor="Green"
+                CornerRadius="50"           
+                Command="{Binding GoToCalendarCommand}"/>
+
+
+        <Button VerticalOptions="Center"
+                Text="Add Event"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                BorderWidth="2.5"
+                BorderColor="Green"
+                CornerRadius="50"
+                Command="{Binding GoToEventManagerCommand}"/>
+
+
+        <Button VerticalOptions="Center"
+                Text="Log out"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                BorderWidth="2.5"
+                BorderColor="Green"
+                CornerRadius="50"              
+                Command="{Binding LogoutCommand}"/>
+    </StackLayout>
+</ContentPage>

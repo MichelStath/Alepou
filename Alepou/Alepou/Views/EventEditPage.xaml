@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viemodels="clr-namespace:Alepou.ViewModels"
+             x:Class="Alepou.Views.EventEditPage">
+    <ContentPage.BindingContext>
+        <viemodels:EventEditViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout Margin="10"
+                 Orientation="Vertical"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center">
+
+        <Label Text="Event"
+               Style="{DynamicResource TitleStyle}"
+               Margin="0, 20"
+               HorizontalTextAlignment="Center"
+               TextColor="Black"/>
+
+        <Label Text="Date:"
+               TextColor="Black"/>
+
+        <DatePicker x:Name="DatePicker"
+                    Date="{Binding Date}"
+                    Format="dd/MM/yyyy"
+                    Margin="0, 0, 0, 0"/>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Time:"
+                   TextColor="Black"
+                   HorizontalOptions="StartAndExpand"/>
+            <Label Text="Duration:"
+                   TextColor="Black"
+                   HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <TimePicker x:Name="TimePicker"                                       
+                        Margin="0, 0, 0, 10"
+                        Time="{Binding Time}"
+                        Format = "HH:mm"
+                        HorizontalOptions="StartAndExpand"/>
+
+            <Entry x:Name="Duration"
+                   Placeholder="Duration.."
+                   Text="{Binding Duration}"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="EndAndExpand"
+                   Keyboard="Numeric"/>
+        </StackLayout>
+
+        <Label Text="Description:"
+               VerticalOptions="Center"
+               TextColor="Black"/>
+
+        <Entry x:Name="Description"
+               Placeholder="Description.."
+               Text="{Binding Description}"
+               TextColor="Black"
+               PlaceholderColor="Gray"/>
+
+        <Button VerticalOptions="Center"
+                Text="Add Event"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                BorderWidth="2.5"
+                BorderColor="Green"
+                CornerRadius="50"              
+                Command="{Binding EditEventCommand}"/>
+    </StackLayout>
+</ContentPage>

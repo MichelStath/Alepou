@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viemodels="clr-namespace:Alepou.ViewModels"
+             x:Class="Alepou.Views.EventManagerPage">
+    <ContentPage.BindingContext>
+        <viemodels:EventManagerViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+        <Label Text="Manage Event"
+               VerticalOptions="Center" 
+               HorizontalOptions="CenterAndExpand"/>
+
+        <Button VerticalOptions="Center" 
+                Text="Add new Event"
+                BackgroundColor="Transparent"
+                BorderWidth="1.5"
+                BorderColor="Green"
+                CornerRadius="50"
+                Command="{Binding GoToEventAdderCommand}"/>
+
+        <Button VerticalOptions="Center" 
+                Text="Edit Event"
+                BackgroundColor="Transparent"
+                BorderWidth="1.5"
+                BorderColor="Green"
+                CornerRadius="50"
+                Command="{Binding EditEventCommand}"/>
+
+        <Button VerticalOptions="Center"
+                Text="Delete Event"
+                BackgroundColor="Transparent"
+                BorderWidth="1.5"
+                BorderColor="Green"
+                CornerRadius="50"
+                Command="{Binding DeleteEventCommand}"/>
+    </StackLayout>
+</ContentPage>
